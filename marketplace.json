@@ -1,0 +1,14 @@
+{
+  "name": "agent-plugins",
+  "owner": {
+    "name": "kewne"
+  },
+  "plugins": [
+    {
+      "name": "doks",
+      "source": "./plugins/doks",
+      "version": "0.1.0",
+      "description": "Maintain high-quality technical documentation and specifications as the source of truth for spec-anchored development."
+    }
+  ]
+}

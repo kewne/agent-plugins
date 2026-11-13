@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "doks",
+  "version": "0.1.0",
+  "description": "Maintain high-quality technical documentation and specifications as the source of truth for spec-anchored development.",
+  "license": "AGPL-3.0-only",
+  "repository": "https://github.com/kewne/agent-plugins"
+}

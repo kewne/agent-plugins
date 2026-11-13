@@ -2,7 +2,12 @@
 
 An architectural document provides a high-level description of an aspect of the system. It must not be a mere restatement of the code; instead, it should allow the reader to quickly grasp how that part of the system works.
 
-Include diagrams (such as Mermaid diagrams) to illustrate structure.
+## Guidelines
+
+- **Central Building Blocks Only**: Only describe the central building blocks of the aspect being documented.
+- **No Exhaustive Enumerations**: Never enumerate all concrete instances of something in the code (e.g., all the controllers with authentication, or all the authentication rules).
+- **Cross-Cutting Concerns**: If the document is about a cross-cutting concern of the system, only add cross-references to other documents with general concerns.
+- **Diagrams**: Include diagrams (such as Mermaid diagrams) to illustrate structure.
 
 ## Structure
 

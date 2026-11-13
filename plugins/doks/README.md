@@ -6,6 +6,7 @@ Maintain high-quality technical documentation and specifications as the source o
 
 | Skill | Purpose |
 |---|---|
+| [refine-doks](./skills/refine-doks/SKILL.md) | Audit and refine existing documentation against Doks guidelines. |
 | [update-doks](./skills/update-doks/SKILL.md) | Update documentation based on the current session. |
 
 ## Install

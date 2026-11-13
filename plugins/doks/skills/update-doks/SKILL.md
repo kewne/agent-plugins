@@ -13,7 +13,7 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
 
 1. **Glossary Files (`<term>.glossary.md`)**
    - Defines a single domain or system term.
-   - Describes what the term means in the context of the project, its properties/invariants, canonical naming in code (types, tables, modules), and how it relates to other terms.
+   - Follow the guidelines in [glossary.md](../../glossary.md) when writing or updating glossary files.
 
 2. **User Story Files (`<operation>.story.md`)**
    - Describes an operation a user (or external actor) can perform on the system.

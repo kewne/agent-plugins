@@ -56,11 +56,21 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
      - A summary of the Document Types and Cross-Linking & Grounding Rules above.
    - Instruct the sub-agent to inspect `<base-dir>/` (`*.glossary.md`, `*.story.md`, `*.arch.md`, and any index files) alongside relevant source files in the repository, and return **only**:
      1. **Target File**: The single documentation file path that should have its body refined (either the user-specified file or the file with the most significant gaps, inaccuracies, stale code anchors, or guideline violations).
-     2. **Findings**: Specific guideline gaps or inaccuracies found in that target file (missing sections, vague criteria, outdated code paths/symbols, missing invariants, etc.).
+     2. **Findings Grouped by Change Type**: Specific guideline gaps or inaccuracies found in that target file, grouped by type of change (e.g., adding/updating cross-references, using glossary terms consistently, aligning document structure/sections, updating code anchors, tightening prose per the style guide).
      3. **Cross-Reference Candidates**: Other existing documentation files that should be linked from the target file or that need cross-reference link updates pointing to the target file.
 
-3. **Refine the Target File and Update Cross-References**
+3. **Plan Changes and Confirm Execution Strategy**
    - In the main agent, read the selected target documentation file (and any relevant source code files needed to verify accuracy) along with the specific sections of candidate files that require cross-reference links.
+   - If there are many changes spanning multiple categories, organize the planned edits into distinct groups by **type of change** (for example, *adding cross-references*, *using the same glossary term consistently*, *restructuring sections*, or *updating code anchors*).
+   - Present the grouped plan and ask the user how they wish to proceed:
+     1. **Do everything in one go**
+     2. **Do each group of changes at a time (recommended)**
+   - If the user chooses **do each group of changes at a time**, ask the user what the commit strategy is:
+     1. **Commit automatically**: After applying each group of changes, automatically stage and commit those changes before proceeding to the next group.
+     2. **Stop after making changes and wait for explicit approval**: After applying a group of changes, stop and wait for the user's explicit approval before proceeding to the next group.
+
+4. **Refine the Target File and Update Cross-References**
+   - Execute the changes according to the user's chosen strategy (all at once, or group by group with the selected commit strategy).
    - **Update the Target File's Body**:
      - Bring the target file into full compliance with the [writing style guide](../../style.md) and its document type guidelines (`*.glossary.md`, `*.story.md`, or `*.arch.md`).
      - Ensure all code anchors (file paths, symbols, types, tests) match the current codebase.

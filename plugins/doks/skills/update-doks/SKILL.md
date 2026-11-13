@@ -7,6 +7,10 @@ description: "Update project technical documentation and specifications based on
 
 Update and maintain high-quality technical documentation and specifications in the project's configured documentation directory using the context, architectural decisions, and changes from the current session.
 
+## Writing Style
+
+All documentation must follow the [writing style guide](../../style.md).
+
 ## Document Types
 
 Documentation under `<base-dir>/` (organized either flat or grouped into domain subfolders) is composed of three types of files identified by their filename suffix:
@@ -19,9 +23,9 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
    - Describes an operation a user (or external actor) can perform on the system.
    - Specifies the actor, preconditions, trigger/inputs, step-by-step behavior, expected outcomes/postconditions, error/edge cases, and testable acceptance criteria.
 
-3. **Architectural Documents (`<component-or-subsystem>.arch.md`)**
-   - Provides a high-level overview of how a part of the system works.
-   - Explains component responsibilities, boundaries, data/control flow, key design trade-offs, and anchors to the source files/modules that implement it.
+3. **Architectural Documents (`<aspect>.arch.md`)**
+   - Provides a high-level description of an aspect of the system.
+   - Follow the guidelines in [architecture.md](../../architecture.md) when writing or updating architectural documents.
 
 ## Cross-Linking Rules
 

@@ -14,7 +14,7 @@ Read existing technical documentation and specifications in the project's config
 
 ## Documentation Guidelines
 
-Documentation under `<base-dir>/` (organized either flat or grouped into domain subfolders) must adhere to the following standards:
+Documentation under `<base-dir>/` (organized either flat or grouped into domain subfolders) must follow the [writing style guide](../../style.md) and adhere to the following standards:
 
 ### Document Types
 
@@ -26,9 +26,9 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
    - Describes an operation a user (or external actor) can perform on the system.
    - Specifies the actor, preconditions, trigger/inputs, step-by-step behavior, expected outcomes/postconditions, error/edge cases, and testable acceptance criteria.
 
-3. **Architectural Documents (`<component-or-subsystem>.arch.md`)**
-   - Provides a high-level overview of how a part of the system works.
-   - Explains component responsibilities, boundaries, data/control flow, key design trade-offs, and anchors to the source files/modules that implement it.
+3. **Architectural Documents (`<aspect>.arch.md`)**
+   - Provides a high-level description of an aspect of the system.
+   - Follow the guidelines in [architecture.md](../../architecture.md) when writing or refining architectural documents.
 
 ### Cross-Linking & Grounding Rules
 
@@ -62,7 +62,7 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
 3. **Refine the Target File and Update Cross-References**
    - In the main agent, read the selected target documentation file (and any relevant source code files needed to verify accuracy) along with the specific sections of candidate files that require cross-reference links.
    - **Update the Target File's Body**:
-     - Bring the target file into full compliance with its document type guidelines (`*.glossary.md`, `*.story.md`, or `*.arch.md`).
+     - Bring the target file into full compliance with the [writing style guide](../../style.md) and its document type guidelines (`*.glossary.md`, `*.story.md`, or `*.arch.md`).
      - Ensure all code anchors (file paths, symbols, types, tests) match the current codebase.
      - Add missing relative Markdown links from the target file to related glossary, user story, and architectural files.
    - **Update Cross-References in Other Files (If Needed)**:

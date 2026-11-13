@@ -6,7 +6,7 @@ Maintain high-quality technical documentation and specifications as the source o
 
 | Skill | Purpose |
 |---|---|
-| [update-doks](./skills/update-doks/SKILL.md) | Update technical documentation in the `base-dir` configured in `./doks.yml` based on the current session's context, decisions, and changes. |
+| [update-doks](./skills/update-doks/SKILL.md) | Update documentation based on the current session. |
 
 ## Install
 
@@ -14,5 +14,3 @@ Maintain high-quality technical documentation and specifications as the source o
 copilot plugin marketplace add kewne/agent-plugins
 copilot plugin install doks@agent-plugins
 ```
-
-

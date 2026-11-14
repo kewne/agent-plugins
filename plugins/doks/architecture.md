@@ -1,4 +1,4 @@
-# Architectural Documents (`<aspect>.arch.md`)
+# Architectural Documents (`<aspect>.architecture.md`)
 
 An architectural document provides a high-level description of an aspect of the system. It must not be a mere restatement of the code; instead, it should allow the reader to quickly grasp how that part of the system works.
 

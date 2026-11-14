@@ -1,6 +1,6 @@
 ---
 name: refine-doks
-description: "Audit and refine existing project documentation in `base-dir` (from `./doks.yml`) against Doks guidelines for glossary (`*.glossary.md`), user story (`*.story.md`), and architectural (`*.arch.md`) files. Updates the body of only one documentation file per run while allowing cross-reference updates in other files. Use when asked to refine, review, improve, or polish existing documentation."
+description: "Audit and refine existing project documentation in `base-dir` (from `./doks.yml`) against Doks guidelines for glossary (`*.glossary.md`), user story (`*.story.md`), and architectural (`*.architecture.md`) files. Updates the body of only one documentation file per run while allowing cross-reference updates in other files. Use when asked to refine, review, improve, or polish existing documentation."
 ---
 
 # Refine Doks (`refine-doks`)
@@ -10,7 +10,7 @@ Read existing technical documentation and specifications in the project's config
 ## Scope & Change Rules
 
 - **Single-File Body Rule**: Each invocation must update the body content of **at most one** documentation file.
-- **Cross-Reference Exception**: Modifying other documentation files in the same run is permitted **only** to add or update cross-references (such as linking a domain term to its `*.glossary.md` file, linking between `*.story.md` and `*.arch.md` files, or fixing broken relative links). Do not rewrite, expand, or restructure the prose body of those secondary files.
+- **Cross-Reference Exception**: Modifying other documentation files in the same run is permitted **only** to add or update cross-references (such as linking a domain term to its `*.glossary.md` file, linking between `*.story.md` and `*.architecture.md` files, or fixing broken relative links). Do not rewrite, expand, or restructure the prose body of those secondary files.
 - **No Unapproved Detail Expansion**: If a refinement would add more detail to the document, explicitly confirm with the user before adding it. If the session is not interactive, prefer **not** to add detail—focus on conciseness, structure, terminology consistency, and cross-references instead.
 - **No Trivial Churn**: If the audit finds no significant issues, do not make changes just for the sake of editing. Announce that there are no changes to make and let the requester know they can ask for a more thorough pass or suggest specific changes.
 
@@ -26,9 +26,9 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
 
 2. **User Story Files (`<operation>.story.md`)**
    - Describes an operation a user (or external actor) can perform on the system.
-   - Specifies the actor, preconditions, trigger/inputs, step-by-step behavior, expected outcomes/postconditions, error/edge cases, and testable acceptance criteria.
+   - Follow the guidelines in [story.md](../../story.md) when writing or refining user story files.
 
-3. **Architectural Documents (`<aspect>.arch.md`)**
+3. **Architectural Documents (`<aspect>.architecture.md`)**
    - Provides a high-level description of an aspect of the system.
    - Follow the guidelines in [architecture.md](../../architecture.md) when writing or refining architectural documents.
 
@@ -36,8 +36,8 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
 
 - **Once Per Section**: Link to a given glossary term, user story, architectural document, or code anchor at most once per section (on its first mention in that section). Do not repeat the same link on subsequent mentions within the same section, keeping cross-references accessible without cluttering the prose with link formatting.
 - **Glossary Links**: When a user story or architectural document references a defined domain term, link its first mention in each section to its corresponding `*.glossary.md` file using a relative Markdown link.
-- **Story <-> Architecture Links**: Cross-reference user stories (`*.story.md`) with the architectural documents (`*.arch.md`) that implement them, and list supported user stories or key domain terms in architectural documents where relevant.
-- **Code Anchors**: Ground glossary definitions, user stories, and architectural overviews with accurate links or paths to the actual source files, symbols, and tests in the repository.
+- **Story <-> Architecture Links**: Cross-reference user stories (`*.story.md`) with the architectural documents (`*.architecture.md`) that implement them, and list supported user stories or key domain terms in architectural documents where relevant.
+- **Code Anchors**: Ground glossary definitions and architectural overviews with accurate links or paths to the actual source files, symbols, and tests in the repository. User stories must not reference code.
 
 ## Workflow
 
@@ -57,7 +57,7 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
      - The configured `<base-dir>` path.
      - Any specific target file or topic requested by the user (if provided).
      - A summary of the Document Types and Cross-Linking & Grounding Rules above.
-   - Instruct the sub-agent to inspect `<base-dir>/` (`*.glossary.md`, `*.story.md`, `*.arch.md`, and any index files) alongside relevant source files in the repository, and return **only**:
+   - Instruct the sub-agent to inspect `<base-dir>/` (`*.glossary.md`, `*.story.md`, `*.architecture.md`, and any index files) alongside relevant source files in the repository, and return **only**:
      1. **Target File**: The single documentation file path that should have its body refined (either the user-specified file or the file with the most significant gaps, inaccuracies, stale code anchors, or guideline violations).
      2. **Findings Grouped by Change Type**: Specific guideline gaps or inaccuracies found in that target file, grouped by type of change (e.g., adding/updating cross-references, using glossary terms consistently, aligning document structure/sections, updating code anchors, tightening prose per the style guide).
      3. **Cross-Reference Candidates**: Other existing documentation files that should be linked from the target file or that need cross-reference link updates pointing to the target file.
@@ -77,7 +77,7 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
 4. **Refine the Target File and Update Cross-References**
    - Execute the changes according to the user's chosen strategy (all at once, or group by group with the selected commit strategy).
    - **Update the Target File's Body**:
-     - Bring the target file into full compliance with the [writing style guide](../../style.md) and its document type guidelines (`*.glossary.md`, `*.story.md`, or `*.arch.md`).
+     - Bring the target file into full compliance with the [writing style guide](../../style.md) and its document type guidelines (`*.glossary.md`, `*.story.md`, or `*.architecture.md`).
      - Ensure all code anchors (file paths, symbols, types, tests) match the current codebase.
      - Add missing relative Markdown links from the target file to related glossary, user story, and architectural files.
    - **Update Cross-References in Other Files (If Needed)**:

@@ -12,6 +12,7 @@ Read existing technical documentation and specifications in the project's config
 - **Single-File Body Rule**: Each invocation must update the body content of **at most one** documentation file.
 - **Cross-Reference Exception**: Modifying other documentation files in the same run is permitted **only** to add or update cross-references (such as linking a domain term to its `*.glossary.md` file, linking between `*.story.md` and `*.arch.md` files, or fixing broken relative links). Do not rewrite, expand, or restructure the prose body of those secondary files.
 - **No Unapproved Detail Expansion**: If a refinement would add more detail to the document, explicitly confirm with the user before adding it. If the session is not interactive, prefer **not** to add detail—focus on conciseness, structure, terminology consistency, and cross-references instead.
+- **No Trivial Churn**: If the audit finds no significant issues, do not make changes just for the sake of editing. Announce that there are no changes to make and let the requester know they can ask for a more thorough pass or suggest specific changes.
 
 ## Documentation Guidelines
 
@@ -61,7 +62,8 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
      3. **Cross-Reference Candidates**: Other existing documentation files that should be linked from the target file or that need cross-reference link updates pointing to the target file.
 
 3. **Plan Changes and Confirm Execution Strategy**
-   - In the main agent, read the selected target documentation file (and any relevant source code files needed to verify accuracy) along with the specific sections of candidate files that require cross-reference links.
+   - If the audit finds no significant issues across the documentation (or in the requested target file), stop without modifying any files: announce that there are no changes to make, and tell the requester that they may ask to be more thorough or suggest specific changes.
+   - Otherwise, in the main agent, read the selected target documentation file (and any relevant source code files needed to verify accuracy) along with the specific sections of candidate files that require cross-reference links.
    - If any proposed change would add more detail to the document, ask the user for confirmation before including it. If the session is not interactive, omit changes that add more detail.
    - If there are many changes spanning multiple categories, organize the planned edits into distinct groups by **type of change** (for example, *adding cross-references*, *using the same glossary term consistently*, *restructuring sections*, or *updating code anchors*).
    - Present the grouped plan and ask the user how they wish to proceed:

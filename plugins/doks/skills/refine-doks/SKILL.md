@@ -34,7 +34,8 @@ Documentation under `<base-dir>/` (organized either flat or grouped into domain 
 
 ### Cross-Linking & Grounding Rules
 
-- **Glossary Links**: When a user story or architectural document references a defined domain term, link it to its corresponding `*.glossary.md` file using a relative Markdown link.
+- **Once Per Section**: Link to a given glossary term, user story, architectural document, or code anchor at most once per section (on its first mention in that section). Do not repeat the same link on subsequent mentions within the same section, keeping cross-references accessible without cluttering the prose with link formatting.
+- **Glossary Links**: When a user story or architectural document references a defined domain term, link its first mention in each section to its corresponding `*.glossary.md` file using a relative Markdown link.
 - **Story <-> Architecture Links**: Cross-reference user stories (`*.story.md`) with the architectural documents (`*.arch.md`) that implement them, and list supported user stories or key domain terms in architectural documents where relevant.
 - **Code Anchors**: Ground glossary definitions, user stories, and architectural overviews with accurate links or paths to the actual source files, symbols, and tests in the repository.
 
